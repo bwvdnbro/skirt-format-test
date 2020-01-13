@@ -1,0 +1,22 @@
+Language: Cpp
+IndentWidth: 4
+AccessModifierOffset: -4
+AllowShortIfStatementsOnASingleLine: true
+AllowShortLoopsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: false
+AllowShortBlocksOnASingleLine: false
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass: true
+  AfterControlStatement: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  BeforeCatch: true
+  BeforeElse: true
+  SplitEmptyRecord: false
+PointerAlignment: Left
+ColumnLimit: 120
+NamespaceIndentation: All
+MacroBlockBegin: "^ITEM_CONCRETE"
+MacroBlockEnd: "^ITEM_END"
