@@ -7,6 +7,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
+    - name : GITHUB CONTEXT
+      env: 
+        GITHUB_CONTEXT: ${{ toJson(github) }} 
+      run: echo "$GITHUB_CONTEXT" 
     - name: Hello world action step
       id: hello
       uses: bwvdnbro/skirt-format@master
