@@ -1,22 +1,17 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  autoformat_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Automatic formatting
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Autoformatting
+    - name: Autoformat
       id: format
       uses: bwvdnbro/skirt-format@master
-      with:
-        private_key: ${{ secrets.PRIVATE_DEPLOY_KEY }}
-        github_ref: master
-        github_origin: git@github.com:bwvdnbro/skirt-format-test.git
-      env:
-        deploy_key: ${{ secrets.PRIVATE_DEPLOY_KEY }}
     - name: Autocommit
+      if: steps.format.outputs.status == 'changed'
       run: |
         git config --global user.name 'skirt-format'
         git config --global user.email 'autoformat@skirt.format'
