@@ -10,7 +10,7 @@ jobs:
     - name: Hello world action step
       id: hello
       uses: bwvdnbro/skirt-format@master
-      with:
+      env:
         private_key: ${{ secrets.PRIVATE_DEPLOY_KEY }}
     # Use the output from the `hello` step
     - name: Get the output time
