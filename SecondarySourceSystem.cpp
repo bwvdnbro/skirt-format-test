@@ -419,7 +419,7 @@ namespace
 
         /** This function generates a random direction for a photon based on the distribution function of the
             absorption coefficient Qabs as a function of the zenith angle. */
-        Direction generateDirection(Random *random) const
+        Direction generateDirection(Random* random) const
         {
             // first generate a random azimuth angle
             const double phi = 2. * M_PI * random->uniform();
@@ -439,12 +439,14 @@ namespace
                 cdf += _ms->numberDensity(_m, h) * Qabs;
             }
             // convert to a cumulative distribution
-            for(size_t i = 1; i < thetas.size(); ++i){
-                cdf[i] += cdf[i-1];
+            for (size_t i = 1; i < thetas.size(); ++i)
+            {
+                cdf[i] += cdf[i - 1];
             }
             // normalise the distribution
-            for(size_t i = 0; i < thetas.size(); ++i){
-                cdf[i] /= cdf[thetas.size()-1];
+            for (size_t i = 0; i < thetas.size(); ++i)
+            {
+                cdf[i] /= cdf[thetas.size() - 1];
             }
             // draw a random uniform deviate
             // get the corresponding zenith angle
