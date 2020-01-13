@@ -7,16 +7,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-    - name : GITHUB CONTEXT
-      env: 
-        GITHUB_CONTEXT: ${{ toJson(github) }} 
-      run: echo "$GITHUB_CONTEXT" 
-    - name: Hello world action step
-      id: hello
+    - name: Autoformatting
+      id: format
       uses: bwvdnbro/skirt-format@master
-      env:
-        private_key: ${{ secrets.PRIVATE_DEPLOY_KEY }}
       with:
+        private_key: ${{ secrets.PRIVATE_DEPLOY_KEY }}
         github_ref: ${{ github.ref }}
         github_origin: ${{ github.origin }}
     # Use the output from the `hello` step
