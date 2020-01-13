@@ -17,8 +17,8 @@ jobs:
       env:
         private_key: ${{ secrets.PRIVATE_DEPLOY_KEY }}
       with:
-        - github_ref: ${{ github.ref }}
-        - github_origin: ${{ github.origin }}
+        github_ref: ${{ github.ref }}
+        github_origin: ${{ github.origin }}
     # Use the output from the `hello` step
     - name: Get the output time
       run: echo "The time was ${{ steps.hello.outputs.time }}"
