@@ -11,7 +11,7 @@ jobs:
       id: hello
       uses: bwvdnbro/skirt-format@master
       with:
-        who-to-greet: 'Mona the Octocat'
+        private_key: ${{ secrets.PRIVATE_DEPLOY_KEY }}
     # Use the output from the `hello` step
     - name: Get the output time
       run: echo "The time was ${{ steps.hello.outputs.time }}"
