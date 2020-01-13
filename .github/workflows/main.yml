@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
     - name: Autoformatting
       id: format
       uses: bwvdnbro/skirt-format@master
@@ -14,6 +16,9 @@ jobs:
         github_origin: git@github.com:bwvdnbro/skirt-format-test.git
       env:
         deploy_key: ${{ secrets.PRIVATE_DEPLOY_KEY }}
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+    - name: Autocommit
+      run: |
+        git config --global user.name 'skirt-format'
+        git config --global user.email 'autoformat@skirt.format'
+        git commit -am "Autoformat"
+        git push
