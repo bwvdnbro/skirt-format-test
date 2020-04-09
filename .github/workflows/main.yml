@@ -14,7 +14,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        repository: ${{ github.event.pull_request.head.repo.clone_url }}
+        repository: ${{ github.event.pull_request.head.repo.full_name }}
         ref: ${{ github.head_ref }}
     # autoformat
     - name: Autoformat
