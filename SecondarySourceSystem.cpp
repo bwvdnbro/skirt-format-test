@@ -141,8 +141,7 @@ bool SecondarySourceSystem::prepareForLaunch(size_t numPackets)
     int usedEntries = 0;    // number of library entries that have at least one mapped cell
     int maxMappedCells = 0; // largest number of cells mapped to a library entry
     int totMappedCells = 0; // total number of cells mapped to a library entry
-    for (int n = 0; n != numEntries; ++n)
-    {
+    for (int n = 0; n != numEntries; ++n){
         if (mapped[n] > 0)
         {
             usedEntries++;
