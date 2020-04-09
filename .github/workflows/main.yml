@@ -10,14 +10,11 @@ jobs:
     name: Automatic formatting
     # steps that make up this job
     steps:
-    - name: Debug output
-      run: echo $CONTEXT
-      env:
-        CONTEXT: ${{ toJSON(github) }}
     # checkout using the default checkout, v2
     - name: Checkout
       uses: actions/checkout@v2
       with:
+        repository: ${{ head.repo.clone_url }}
         ref: ${{ github.head_ref }}
     # autoformat
     - name: Autoformat
