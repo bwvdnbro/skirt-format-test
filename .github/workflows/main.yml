@@ -13,6 +13,8 @@ jobs:
     # checkout using the default checkout, v2
     - name: Checkout
       uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
     # autoformat
     - name: Autoformat
       # we need this ID to refer to this action later
